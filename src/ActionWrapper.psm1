@@ -10,8 +10,9 @@ function Invoke-Action {
         'pull_request' { Initialize-PR }
         'issue_comment' { Initialize-PR }
         'schedule' { Initialize-Scheduled }
+        'workflow_dispatch' { Initialize-Scheduled }
         'issues' { Initialize-Issue }
-        default { Write-ActionLog 'Not supported event type' -Err }
+        default { Write-ActionLog "Unsupported event type: $EVENT_TYPE" -Err }
     }
 }
 
